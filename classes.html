@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <!-- (Set character encoding, responsive viewport, and page title) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đông Thạnh Boxing | Lớp học & Lịch tập</title>
+    
+    <!-- (Include custom CSS file and Boxicons library for UI icons) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- (Header section containing the website logo and global navigation menu) -->
+    <header>
+        <div class="logo">
+            <h1> Boxing Đông Thạnh</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <!-- (The "active" class highlights the Classes link to indicate the current page) -->
+                <li><a href="classes.html" class="active">Classes</a></li>
+                <li><a href="events.html">Event</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- (Main content area for the Classes page) -->
+    <main>
+        <!-- (Schedule section: Displays the weekly training timetable) -->
+        <section class="schedule-section">
+            <h2>Lịch Tập Luyện Hàng Tuần</h2>
+            <p class="schedule-intro">Tham gia cùng chúng tôi vào bất kỳ khung giờ nào phù hợp với bạn. Các lớp tập trải nghiệm hoàn toàn miễn phí.</p>  
+            
+            <!-- (Filter buttons to sort the schedule by class type. JS will handle the filtering logic based on data-filter attributes) -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="co-ban">Cơ Bản</button>
+                <button class="filter-btn" data-filter="nang-cao">Nâng Cao</button>
+                <button class="filter-btn" data-filter="tre-em">Trẻ Em</button>
+                <button class="filter-btn" data-filter="the-luc">Thể Lực</button>
+            </div>
+
+            <!-- (Table displaying the schedule. Rows represent time slots and columns represent days of the week) -->
+            <table class="schedule-table" id="trainingSchedule">
+                <!-- (Table header row defining the days of the week) -->
+                <thead>
+                    <tr>
+                        <th>Khung giờ</th>
+                        <th>Thứ 2</th>
+                        <th>Thứ 3</th>
+                        <th>Thứ 4</th>
+                        <th>Thứ 5</th>
+                        <th>Thứ 6</th>
+                        <th>Thứ 7</th>
+                        <th>Chủ Nhật</th>
+                    </tr>
+                </thead>
+                <!-- (Table body containing the class schedule data) -->
+                <tbody>
+                    <tr>
+                        <td><strong>7:00 - 8:30</strong></td>
+                        <td>Boxing Cơ Bản</td>
+                        <td>Boxing Cơ Bản</td>
+                        <td>Thể Lực</td>
+                        <td>Kĩ Thuật Nâng Cao</td>
+                        <td>Thể Lực</td>
+                        <td>Sparring</td>
+                        <td>Nghỉ Ngơi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9:00 - 10:30</strong></td>
+                        <td>Boxing Cơ Bản</td>
+                        <td>Boxing Cơ Bản</td>
+                        <td>Thể Lực</td>
+                        <td>Kĩ Thuật Nâng Cao</td>
+                        <td>Thể Lực</td>
+                        <td>Sparring</td>
+                        <td>Nghỉ Ngơi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11:00 - 12:30</strong></td>
+                        <td>Boxing Cơ Bản</td>
+                        <td>Boxing Cơ Bản</td>
+                        <td>Thể Lực</td>
+                        <td>Kĩ Thuật Nâng Cao</td>
+                        <td>Thể Lực</td>
+                        <td>Sparring</td>
+                        <td>Nghỉ Ngơi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>14:00 - 15:30</strong></td>
+                        <td>Boxing Cơ Bản</td>
+                        <td>Boxing Cơ Bản</td>
+                        <td>Thể Lực</td>
+                        <td>Kĩ Thuật Nâng Cao</td>
+                        <td>Thể Lực</td>
+                        <td>Sparring</td>
+                        <td>Nghỉ Ngơi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>16:00 - 17:30</strong></td>
+                        <td>Dành Cho Trẻ Em</td>
+                        <td>Dành Cho Trẻ Em</td>
+                        <td>Dành Cho Trẻ Em</td>
+                        <td>Dành Cho Trẻ Em</td>
+                        <td>Dành Cho Trẻ Em</td>
+                        <td>Dành Cho Trẻ Em</td>
+                        <td>Nghỉ Ngơi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>18:00 - 19:30</strong></td>
+                        <td>Đối Kháng Nâng Cao</td>
+                        <td>Đối Kháng Nâng Cao</td>
+                        <td>Thể Lực Chuyên Sâu</td>
+                        <td>Đối Kháng Nâng Cao</td>
+                        <td>Đối Kháng Nâng Cao</td>
+                        <td>Sparring</td>
+                        <td>Nghỉ Ngơi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>20:00 - 21:30</strong></td>
+                        <td>Đối Kháng Nâng Cao</td>
+                        <td>Đối Kháng Nâng Cao</td>
+                        <td>Thể Lực Chuyên Sâu</td>
+                        <td>Đối Kháng Nâng Cao</td>
+                        <td>Đối Kháng Nâng Cao</td>
+                        <td>Sparring</td>
+                        <td>Nghỉ Ngơi</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- (Class Showcase section: Provides detailed descriptions, images, and videos for different class types) -->
+        <section class="class-showcase-section">
+            <div class="container-showcase">
+                <h2>Chi Tiết Chương Trình Học</h2>
+                <p class="section-subtitle">Khám phá chi tiết giáo án và không khí tập luyện tại Boxing Đông Thạnh</p>
+
+                <div class="showcase-wrapper">
+                    <!-- (Tab control buttons. JS listens for click events to switch between different class details) -->
+                    <div class="showcase-tabs">
+                        <button class="sc-tab-btn active" data-target="sc-coban">
+                            <i class='bx bx-run'></i> Boxing Cơ Bản
+                        </button>
+                        <button class="sc-tab-btn" data-target="sc-theluc">
+                            <i class='bx bx-dumbbell'></i> Cardio & Thể Lực
+                        </button>
+                        <button class="sc-tab-btn" data-target="sc-thidau">
+                            <i class='bx bx-trophy'></i> Đào Tạo Thi Đấu
+                        </button>
+                    </div>
+
+                    <!-- (Container for all the tab panes) -->
+                    <div class="showcase-content">
+                        
+                        <!-- (Tab pane for Basic Boxing. Currently set as 'active' to display by default) -->
+                        <div class="sc-tab-pane active" id="sc-coban">
+                            <!-- (Split layout: Media on one side, text information on the other) -->
+                            <div class="sc-split-layout">
+                                <!-- (Media grid containing a main video and sub-images) -->
+                                <div class="sc-media-grid">
+                                    <div class="sc-media-main">
+                                        <!-- (Video element playing automatically and looping silently. The 'poster' attribute shows an image before the video loads) -->
+                                        <video autoplay loop muted playsinline poster="img/coban.jpg">
+                                            <source src="video/co-ban.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="sc-media-sub"><img src="img/coban.jpg" alt="Học viên tập cơ bản 1"></div>
+                                    <div class="sc-media-sub"><img src="img/coban-2.jpg" alt="Học viên tập cơ bản 2"></div>
+                                </div>
+                                
+                                <!-- (Information box containing text description and a list of techniques learned) -->
+                                <div class="sc-info-box">
+                                    <h3>Boxing Cơ Bản</h3>
+                                    <p class="sc-desc">Khóa học nền tảng được thiết kế đặc biệt cho người chưa từng tiếp xúc với võ thuật. Chú trọng vào việc làm quen với cơ thể, xây dựng thói quen vận động và nắm vững các kỹ thuật cốt lõi.</p>
+                                    <ul class="sc-list">
+                                        <li><i class='bx bx-check-circle'></i> <strong>Tư thế & Di chuyển:</strong> Học cách đứng thủ chuẩn xác và bộ pháp di chuyển (Footwork) linh hoạt.</li>
+                                        <li><i class='bx bx-check-circle'></i> <strong>Kỹ thuật đòn tay:</strong> Thực hành nhuần nhuyễn 4 cú đấm cơ bản (Jab, Cross, Hook, Uppercut).</li>
+                                        <li><i class='bx bx-check-circle'></i> <strong>Phản xạ tự vệ:</strong> Rèn luyện kỹ năng né đòn cơ bản, phản xạ mắt và tay.</li>
+                                        <li><i class='bx bx-check-circle'></i> <strong>Dụng cụ:</strong> Luyện tập với đích đấm (Focus mitts) cùng HLV và đấm bao cát.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- (Tab pane for Cardio & Stamina class) -->
+                        <div class="sc-tab-pane" id="sc-theluc">
+                            <div class="sc-split-layout">
+                                <div class="sc-media-grid">
+                                    <div class="sc-media-main">
+                                        <video autoplay loop muted playsinline poster="img/theluc-2.jpg">
+                                            <source src="video/theluc.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="sc-media-sub"><img src="img/theluc.jpg" alt="Tập thể lực 1"></div>
+                                    <div class="sc-media-sub"><img src="img/theluc-2.jpg" alt="Tập thể lực 2"></div>
+                                </div>
+                                
+                                <div class="sc-info-box">
+                                    <h3>Cardio & Thể Lực</h3>
+                                    <p class="sc-desc">Lớp học không đối kháng, tập trung 100% vào việc vắt kiệt mồ hôi, đánh bay mỡ thừa và bứt phá giới hạn thể lực của bản thân bằng các bài tập cường độ cao.</p>
+                                    <ul class="sc-list">
+                                        <li><i class='bx bx-check-circle'></i> <strong>HIIT Boxing:</strong> Đấm bao cát liên tục tốc độ cao kết hợp nhảy dây ép nhịp tim.</li>
+                                        <li><i class='bx bx-check-circle'></i> <strong>Thể lực chuyên dụng:</strong> Rèn sức bền với bài tập lật lốp xe tải và quai búa.</li>
+                                        <li><i class='bx bx-check-circle'></i> <strong>Sức mạnh bùng nổ:</strong> Tập luyện với dây thừng chiến đấu (Battle Rope) và tạ chuông (Kettlebell).</li>
+                                        <li><i class='bx bx-check-circle'></i> <strong>Core & Abs:</strong> Các chuỗi bài tập siết cơ bụng, plank và nhào lộn cơ bản.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- (Tab pane for Competitive Training class) -->
+                        <div class="sc-tab-pane" id="sc-thidau">
+                            <div class="sc-split-layout">
+                                <div class="sc-media-grid">
+                                    <div class="sc-media-main">
+                                        <video autoplay loop muted playsinline poster="img/thidau-1.jpg">
+                                            <source src="video/thidau.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="sc-media-sub"><img src="img/thidau-1.jpg" alt="Thi đấu 1"></div>
+                                    <div class="sc-media-sub"><img src="img/thidau-2.jpg" alt="Thi đấu 2"></div>
+                                </div>
+                                
+                                <div class="sc-info-box">
+                                    <h3>Đào Tạo Thi Đấu</h3>
+                                    <p class="sc-desc">Dành riêng cho những học viên đã vững nền tảng cơ bản, có ý chí kiên cường và mong muốn thử thách bản thân thực sự trên võ đài với tính đối kháng cao nhất.</p>
+                                    <ul class="sc-list">
+                                        <li><i class='bx bx-check-circle'></i> <strong>Đấu tập (Sparring):</strong> Thi đấu cọ xát thực tế trên ring một cách an toàn dưới sự giám sát chặt chẽ của HLV.</li>
+                                        <li><i class='bx bx-check-circle'></i> <strong>Tư duy chiến thuật:</strong> Học cách đọc vị đối thủ, gài đòn, cắt góc đài và ép góc.</li>
+                                        <li><i class='bx bx-check-circle'></i> <strong>Phòng thủ phản công:</strong> Nâng cao kỹ năng lặn ngụp (Bob and Weave), gạt đỡ và phản đòn tốc độ.</li>
+                                        <li><i class='bx bx-check-circle'></i> <strong>Tâm lý chiến:</strong> Rèn luyện bản lĩnh, giữ bình tĩnh khi dính đòn và kiểm soát nhịp độ trận đấu.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- (Footer section containing location details, contact information, and copyright) -->
+    <footer>
+        <div class="footer-info">
+            <p>📍 Cơ Sở 1: Đông Thạnh, Hóc Môn</p>
+            <p>📍 Cơ Sở 2: 322 Trịnh Thị Miếng, Hóc Môn</p>
+            <p>📍 Cơ Sở 3: 39/25 XTT 59 Xã Bà Điểm Hóc Môn</p>
+            <p>📞 Điện thoại: 0834.333.646</p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Boxing Đông Thạnh. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+    
+    <!-- (Button to quickly scroll back to the top of the page) -->
+    <button id="backToTopBtn" title="Lên đầu trang"><i class='bx bx-chevron-up'></i></button>
+    
+    <!-- (Embed the main JavaScript file at the end of the body for optimal loading performance) -->
+    <script src="js/script.js"></script>
+</body>
+</html>

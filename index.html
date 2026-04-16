@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <!-- (Set character encoding, responsive viewport, and page title) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đông Thạnh Boxing | Trang chủ</title>
+    
+    <!-- (Include custom CSS file and Boxicons library for UI icons. Source: https://boxicons.com/) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- (Header section containing the website logo and global navigation menu) -->
+    <header> 
+        <div class="logo">
+            <h1>Boxing Đông Thạnh</h1> 
+        </div>
+        <nav>
+            <ul>
+                <!-- (The "active" class highlights the Home link to indicate the current page) -->
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="events.html">Event</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- (Main content area of the homepage) -->
+    <main>
+        <!-- (Hero section: The main banner with an introduction message and a Call-to-Action button) -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>RÈN LUYỆN Ý CHÍ - ĐÁNH THỨC SỨC MẠNH</h2>
+                <p>Câu lạc bộ Quyền anh Cộng đồng phi lợi nhuận dành cho thanh thiếu niên và người dân địa phương.</p>
+                <a href="contact.html" class="btn-primary">Đăng ký tập thử ngay</a>
+            </div>
+            <img src="img/lodt.png" alt="Logo" class="hero-image">
+        </section>
+
+        <!-- (Core Values section: Displays the 3 main principles of the club. Each card has a 'data-target' attribute to trigger a specific modal popup) -->
+        <section class="core-values">
+            <div class="value-card open-modal-btn" data-target="modal-health">
+                <h3>🏃‍♂️ Sức Khỏe</h3>
+                <p>Cải thiện thể lực toàn diện, đốt cháy calo và xả stress hiệu quả sau những giờ học tập căng thẳng.</p>
+                <span class="click-hint"></span>
+            </div>
+            <div class="value-card open-modal-btn" data-target="modal-discipline">
+                <h3>🧘‍♂️ Kỷ Luật</h3>
+                <p>Rèn luyện ý chí sắt đá, học cách kiểm soát bản thân, tôn trọng đối thủ và chính mình trên sàn đấu.</p>
+                <span class="click-hint"></span>
+            </div>
+            <div class="value-card open-modal-btn" data-target="modal-defense">
+                <h3>🛡️ Tự Vệ</h3>
+                <p>Trang bị kỹ năng phản xạ và bảo vệ bản thân an toàn trước những tình huống nguy hiểm trên đường phố.</p>
+                <span class="click-hint"></span>
+            </div>
+        </section>
+
+        <!-- (Statistics section: Displays animated number counters. JS Observer API is likely used to animate these numbers when scrolled into view) -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <i class='bx bx-user-check'></i>
+                    <h3 class="stat-value">
+                        <span class="number-box"><span class="sign">></span><span class="stat-number" data-target="200">0</span></span>
+                    </h3>
+                    <p>Học viên đang tập</p>
+                </div>
+                <div class="stat-item">
+                    <i class='bx bx-trophy'></i>
+                    <h3 class="stat-value">
+                        <span class="number-box"><span class="sign">></span><span class="stat-number" data-target="15">0</span></span>
+                    </h3>
+                    <p>Giải thưởng đạt được</p>
+                </div>
+                <div class="stat-item">
+                    <i class='bx bx-buildings'></i>
+                    <h3 class="stat-value">
+                        <span class="number-box"><span class="stat-number" data-target="3">0</span></span>
+                    </h3>
+                    <p>Cơ sở hoạt động</p>
+                </div>
+                <div class="stat-item">
+                    <i class='bx bx-timer'></i>
+                    <h3 class="stat-value">
+                        <span class="number-box"><span class="sign">></span><span class="stat-number" data-target="10">0</span></span>
+                    </h3>
+                    <p>Năm kinh nghiệm</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- (Modal Popups: Hidden by default. Displayed when the corresponding value card is clicked via JS event listeners) -->
+    <div id="modal-health" class="custom-modal">
+        <div class="modal-content">
+            <span class="close-btn" data-target="modal-health">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="img/suc-khoe.jpg" alt="Tập luyện sức khỏe">
+                </div>
+                <div class="modal-text">
+                    <h2>Sức Khỏe Toàn Diện</h2>
+                    <p>Tại Boxing Đông Thạnh, chúng tôi thiết kế các bài tập phù hợp cho mọi thể trạng. Dù bạn là học sinh cần xả stress hay người đi làm cần cải thiện sức khỏe, các HLV sẽ điều chỉnh cường độ phù hợp nhất. Đốt cháy lên đến 800 calo/buổi với các bài tập Cardio kết hợp HIIT.</p>
+                   <a href="classes.html?filter=the-luc" class="btn-modal-action">Tham gia Lớp Thể Lực</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- (Modal Popup for Discipline) -->
+    <div id="modal-discipline" class="custom-modal">
+        <div class="modal-content">
+            <span class="close-btn" data-target="modal-discipline">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="img/ky-luat.jpg" alt="Kỷ luật võ thuật">
+                </div>
+                <div class="modal-text">
+                    <h2>Kỷ Luật Thép</h2>
+                    <p>Võ thuật bắt đầu bằng sự tôn trọng. Chúng tôi không chỉ dạy đấm, chúng tôi rèn luyện nhân cách. Sự đúng giờ, tinh thần không bỏ cuộc và thái độ khiêm tốn là những gì bạn sẽ nhận được. Cùng nhau vượt qua giới hạn bản thân mỗi ngày.</p>
+                    <a href="about.html" class="btn-modal-action">Khám phá Văn hóa CLB</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- (Modal Popup for Self-Defense) -->
+    <div id="modal-defense" class="custom-modal">
+        <div class="modal-content">
+            <span class="close-btn" data-target="modal-defense">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="img/tu-ve.jpg" alt="Kỹ năng tự vệ">
+                </div>
+                <div class="modal-text">
+                    <h2>Kỹ Năng Tự Vệ</h2>
+                    <p>Giáo trình tự vệ đường phố được chắt lọc từ các tình huống thực tế. Chúng tôi hướng dẫn cách quan sát, đánh giá nguy hiểm và các đòn thế thoát thân an toàn, không cổ xúy bạo lực. Xây dựng sự tự tin để bình tĩnh xử lý trước mọi tình huống.</p>
+                    <a href="classes.html?filter=co-ban" class="btn-modal-action">Xem Kỹ thuật cơ bản</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- (Footer section containing location details, contact information, and copyright) -->
+    <footer>
+        <div class="footer-info">
+            <p>📍 Cơ Sở 1: Đông Thạnh, Hóc Môn</p>
+            <p>📍 Cơ Sở 2: 322 Trịnh Thị Miếng, Hóc Môn</p>
+            <p>📍 Cơ Sở 3: 39/25 XTT 59 Xã Bà Điểm Hóc Môn</p>
+            <p>📞 Điện thoại: 0834.333.646</p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Boxing Đông Thạnh. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+    
+    <!-- (Button to quickly scroll back to the top of the page) -->
+    <button id="backToTopBtn" title="Lên đầu trang"><i class='bx bx-chevron-up'></i></button>
+    
+    <!-- (Embed the main JavaScript file at the end of the body for optimal loading performance) -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <!-- (Set character encoding, responsive viewport for mobile devices, and page title) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đông Thạnh Boxing | Tin tức & Sự kiện</title>
+    
+    <!-- (Link to the external stylesheet and Boxicons library for UI elements) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- (Header container for logo and main site navigation) -->
+    <header>
+        <div class="logo">
+            <h1> Boxing Đông Thạnh</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" >About</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <!-- (The "active" class is applied to the Event link to indicate the user's current location) -->
+                <li><a href="events.html" class="active">Event</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- (Main content area containing event and news sections) -->
+    <main>
+        <!-- (Events Section: Displays upcoming activities and matches) -->
+        <section class="events-section">
+            <h2>Sự kiện sắp tới</h2>
+            
+            <!-- (Introductory paragraph) -->
+            <p class="schedule-intro">Đón chờ các sự kiện hấp dẫn sắp tới</p>  
+            
+            <!-- (Grid container used to display event cards side-by-side on larger screens) -->
+            <div class="event-grid">
+                
+                <!-- (Semantic HTML5 'article' tag used to encapsulate a self-contained piece of content like an event post) -->
+                <article class="event-card">
+                    <img src="img/giaohuu.jpg" alt="Hai võ sĩ đang chuẩn bị chạm găng thi đấu" class="event-img">
+                    <div class="event-info">
+                        <h3>🏆 Giải đấu Giao Hữu Lần Thứ 4</h3>
+                        <p><strong>Ngày:</strong> 20/04/2026 | <strong>Giờ:</strong> 18:00 - 21:30</p>
+                        <p>Đến cổ vũ các võ sĩ của chúng tôi thi đấu, giao hữu giữa các câu lạc bộ. Vào cửa tự do, hoan nghênh mọi sự ủng hộ!</p>
+                    </div>
+                </article>
+                
+                <!-- (Second event card indicating a 'Coming Soon' event) -->
+                <article class="event-card">
+                    <img src="img/cs4.jpg" alt="Khai Trường Cơ Sở 4" class="event-img">
+                    <div class="event-info">
+                        <h3>Boxing Đông Thạnh chuẩn bị Khai Trương Cơ Sở 4</h3>
+                        <p>Coming Soon</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- (News Section: Displays the latest announcements or articles) -->
+        <section class="news-section">
+            <h2>Tin tức mới nhất</h2>
+            
+            <!-- (List container for news items) -->
+            <div class="news-list">
+                
+                <!-- (Using 'article' tag again for semantic structure of a news post) -->
+                <article class="news-item">
+                    <img src="img/grant.jpg" alt="Những đôi găng tay boxing mới tinh màu đỏ rực" class="news-img">
+                    <div class="news-content">
+                        <h3>Boxing Đông Thạnh nhận tài trợ 20 đôi găng tay mới từ Nhà Tài Trợ B</h3>
+                        <p class="news-date">Đăng ngày: 09/03/2026</p>
+                        <p>Chúng tôi vô cùng biết ơn Nhà Tài Trợ B đã gửi tặng 20 đôi găng tay và 20 băng quấn tay (handwraps) hoàn toàn mới.</p>
+                    </div>
+                </article> 
+            </div>
+        </section>
+    </main>
+
+    <!-- (Footer area containing multi-location contact information and copyright text) -->
+    <footer>
+        <div class="footer-info">
+            <p>📍 Cơ Sở 1: Đông Thạnh, Hóc Môn</p>
+            <p>📍 Cơ Sở 2: 322 Trịnh Thị Miếng, Hóc Môn</p>
+            <p>📍 Cơ Sở 3: 39/25 XTT 59 Xã Bà Điểm Hóc Môn</p>
+            <p>📞 Điện thoại: 0834.333.646</p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Boxing Đông Thạnh. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+    
+   <!-- (Button to quickly scroll back to the top of the page) -->
+    <button id="backToTopBtn" title="Lên đầu trang"><i class='bx bx-chevron-up'></i></button>
+
+   <!-- (Embed the main JavaScript file at the end of the body for optimal loading performance) -->
+    <script src="js/script.js"></script>
+</body>
+</html>

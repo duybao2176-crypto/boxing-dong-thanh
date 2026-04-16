@@ -1,0 +1,574 @@
+/* Imports external Google Fonts (Montserrat for body text and Oswald for headings). */
+/* ==========================================================================
+   GLOBAL STYLES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Oswald:wght@500;700&display=swap');
+
+/* Defines global CSS variables for a consistent dark theme color palette across the website. */
+:root {
+    --bg-color: #121212; 
+    --surface-color: #1e1e1e; 
+    --text-color: #f5f5f5; 
+    --accent-color: #e50914; 
+    --hover-color: #ff1f2a;
+}
+
+/* Resets default browser margins and paddings, and applies border-box sizing to all elements. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sets the default font family, background color, text color, and line height for the document body. */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8; 
+}
+
+/* Ensures all images are responsive and scale down to fit their containers without exceeding their original size. */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Removes underlines from hyperlinks and adds a smooth transition effect for color changes on hover. */
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease; 
+}
+
+/* Applies the secondary font (Oswald), uppercase transformation, and letter spacing to all heading tags. */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+/* Styles the top header to be sticky, ensuring it remains visible while scrolling, using flexbox for layout. */
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+header {
+    background-color: #000000;
+    padding: 15px 50px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Styles the website logo text with the primary accent color and letter spacing. */
+header .logo h1 {
+    color: var(--accent-color);
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+/* Formats the navigation menu as a horizontal list with spacing between items. */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Styles the navigation links with bold text, uppercase letters, and specific padding. */
+nav ul li a {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+/* Adds a hover and active state for navigation links, changing text color and adding a bottom border. */
+nav ul li a:hover, 
+nav ul li a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Sets a minimum height for the main content area and standard padding for all sections. */
+/* ==========================================================================
+   MAIN CONTENT SECTIONS (HOME PAGE)
+   ========================================================================== */
+main { min-height: 80vh; }
+section { padding: 60px 50px; }
+
+/* Centers section titles and applies a specific font size and accent color. */
+h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: var(--accent-color);
+}
+
+/* Creates a full-width hero section with vertically and horizontally centered text content. */
+.hero-section {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 0; 
+}
+
+/* Positions the hero background image absolutely, covering the entire section with a dark opacity overlay. */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4; 
+    z-index: -1;
+}
+
+/* Styles the typography within the hero content area. */
+.hero-content h2 { font-size: 48px; color: #ffffff; margin-bottom: 15px; }
+.hero-content p { font-size: 18px; margin-bottom: 30px; }
+
+/* Defines the primary button style with a solid background, hover transitions, and a slight scale effect. */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s; 
+    display: inline-block;
+}
+.btn-primary:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05); 
+}
+
+/* Utilizes CSS Grid to create a responsive, multi-column layout for various card grids. */
+.core-values, .team-grid, .class-grid, .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Styles individual cards with a surface background color, padding, rounded corners, and hover transitions. */
+.value-card, .class-card, .event-card {
+    background-color: var(--surface-color);
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Ensures images inside cards maintain a uniform height and cover their container without distortion. */
+.class-card img, .event-card img, .value-card img {
+    width: 100%;
+    height: 300px !important; 
+    object-fit: cover; 
+    object-position: center; 
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Styles the 'About' section, setting max-width and text alignment for readability. */
+/* ==========================================================================
+   ABOUT PAGE: STORY & ZIG-ZAG LAYOUT
+   ========================================================================== */
+.story-section { padding-bottom: 20px; }
+.story-content { max-width: 900px; margin: 0 auto; text-align: center; }
+.story-content p { font-size: 18px; color: #cccccc; margin-bottom: 20px; line-height: 1.8; }
+.story-content p:first-of-type { font-size: 20px; font-weight: 500; color: #ffffff; }
+
+/* Creates an alternating zig-zag layout using Flexbox, with initial hidden states for scroll animations. */
+.ziczac-section { padding: 40px 50px; }
+.container-zz { max-width: 1100px; margin: 0 auto; }
+.zz-item {
+    display: flex; align-items: center; gap: 60px; margin-bottom: 100px;
+    opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out;
+}
+.zz-item.active { opacity: 1; transform: translateY(0); }
+.zz-item:nth-child(even) { flex-direction: row-reverse; }
+.zz-img { flex: 1; position: relative; }
+
+/* Adds hover effects to the zig-zag images, including a slight scale and border color change. */
+.zz-img img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #333; transition: transform 0.4s ease; }
+.zz-img:hover img { transform: scale(1.03); border-color: var(--accent-color); }
+
+/* Positions a highlighted year tag over the image in the zig-zag layout. */
+.year-tag {
+    position: absolute; top: -15px; left: -15px; background-color: var(--accent-color); color: #fff;
+    padding: 8px 20px; font-family: 'Oswald', sans-serif; font-weight: bold; border-radius: 4px; box-shadow: 4px 4px 0 rgba(0,0,0,0.5); z-index: 2;
+}
+.zz-item:nth-child(even) .year-tag { left: auto; right: -15px; }
+
+/* Styles the text block adjacent to the image in the zig-zag layout. */
+.zz-text { flex: 1; }
+.zz-text h3 { color: var(--accent-color); font-size: 28px; margin-bottom: 20px; }
+.zz-text p { font-size: 17px; color: #cccccc; line-height: 1.8; }
+
+/* Styles the coach profile section, creating a two-column grid layout for information and media. */
+/* ==========================================================================
+   COACH PROFILE (PROFILE, SLIDERS & TABS)
+   ========================================================================== */
+.coach-profile-section { padding: 60px 50px; background-color: #0a0a0a; border-top: 1px solid #333; }
+.container-profile { max-width: 1200px; margin: 0 auto; }
+.profile-grid { display: flex; gap: 40px; margin-top: 40px; align-items: flex-start; }
+
+/* Formats the coach's text information box with a distinct left border and shadow. */
+.profile-info {
+    flex: 1; background-color: var(--surface-color); padding: 40px; border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-left: 4px solid var(--accent-color);
+}
+.coach-name-large { font-size: 42px; color: #fff; margin-bottom: 5px; letter-spacing: 2px; }
+.coach-title { color: var(--accent-color); font-size: 18px; font-weight: bold; text-transform: uppercase; margin-bottom: 25px; }
+.coach-description p { color: #ccc; line-height: 1.8; margin-bottom: 30px; }
+.coach-stats { list-style: none; margin-bottom: 30px; }
+.coach-stats li { margin-bottom: 15px; font-size: 16px; color: #eee; display: flex; align-items: center; gap: 10px; }
+.coach-stats li i { color: var(--accent-color); font-size: 22px; }
+.quote-box { background-color: #111; padding: 20px; border-radius: 8px; font-style: italic; color: #aaa; border: 1px dashed #444; }
+
+/* Structures the interactive media area on the right side of the profile. */
+.profile-media { flex: 1.2; display: flex; flex-direction: column; }
+.tab-controls { display: flex; gap: 10px; margin-bottom: 20px; }
+
+/* Styles the tab navigation buttons used to switch between different media views. */
+.tab-btn {
+    flex: 1; background-color: var(--surface-color); color: #888; border: 2px solid transparent; padding: 15px;
+    font-size: 16px; font-weight: bold; cursor: pointer; border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.tab-btn i { font-size: 22px; }
+.tab-btn:hover { color: #fff; background-color: #333; }
+.tab-btn.active { background-color: var(--accent-color); color: #fff; box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4); }
+
+/* Contains the content for each tab, handling visibility and fade-in animations. */
+.tab-content-wrapper { background-color: var(--surface-color); border-radius: 12px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.tab-pane { display: none; animation: fadeIn 0.4s ease; }
+.tab-pane.active { display: block; }
+
+/* Defines the structural wrapper for the media slider, maintaining an aspect ratio constraint. */
+/* ---------- NEW UPDATE: SLIDER LAYOUT ---------- */
+.media-slider-wrapper { 
+    position: relative; 
+    width: 100%; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    background-color: #1a1a1a; /* Synchronizes background color with caption */
+    border: 1px solid #333;
+}
+
+/* Hides inactive slider items and applies fade-in animation to the active item. */
+.slide-item { display: none; width: 100%; animation: fadeIn 0.4s ease; }
+.slide-item.active { display: block; }
+
+/* Forces videos and images inside the slider to maintain a 16:9 aspect ratio and fit properly. */
+.slide-item img, .slide-item video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain; 
+    background-color: #000;
+    display: block;
+}
+
+/* Styles the text caption area below the media slider, reserving space for navigation controls. */
+/* Caption block below image/video */
+.slide-caption {
+    background-color: #1a1a1a;
+    color: #ddd;
+    text-align: left; /* Align left so text doesn't overlap right buttons */
+    padding: 15px 110px 15px 20px; /* Leave 110px on the right for 2 buttons */
+    font-size: 16px;
+    border-top: 2px solid var(--accent-color);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.5px;
+    min-height: 60px; /* Ensure sufficient height */
+    display: flex;
+    align-items: center;
+}
+
+/* Positions the previous/next slider buttons over the right side of the caption bar. */
+/* Position next/prev buttons to sink into the caption bar */
+.nav-controls { 
+    position: absolute; 
+    bottom: 12px; /* Pull buttons right above the black band of the caption */
+    right: 15px; 
+    z-index: 3; 
+    display: flex; 
+    gap: 8px; 
+}
+
+/* Styles the slider navigation buttons with a dark background and hover effect. */
+.nav-btn { 
+    background-color: #2a2a2a; /* Dark gray color matching the caption */
+    padding: 6px 14px; 
+    border: 1px solid #444; 
+    color: white; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    font-size: 18px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-btn:hover { background-color: var(--accent-color); border-color: var(--accent-color); }
+
+
+/* Formats the schedule table with solid borders, fixed layout, and distinct header styling. */
+/* ==========================================================================
+   TRAINING SCHEDULE TABLE & CONTACT FORM
+   ========================================================================== */
+.schedule-table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: var(--surface-color); table-layout: fixed; }
+.schedule-table th, .schedule-table td { padding: 15px; text-align: center; border: 1px solid #333; }
+.schedule-table th { background-color: var(--accent-color); color: #fff; font-size: 18px; }
+
+/* Applies zebra-striping to table rows for better readability and adds a hover state. */
+.schedule-table tbody tr:nth-child(even) { background-color: #2a2a2a; }
+.schedule-table tbody tr:hover { background-color: #333; }
+
+/* Styles the filter buttons used to manipulate the schedule table view. */
+.filter-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 30px 0 40px 0; }
+.filter-btn { background-color: transparent; color: var(--text-color); border: 2px solid #555; padding: 10px 30px; border-radius: 50px; cursor: pointer; font-family: 'Oswald', sans-serif; font-size: 16px; text-transform: uppercase; transition: all 0.3s ease; }
+.filter-btn:hover, .filter-btn.active { background-color: var(--accent-color); border-color: var(--accent-color); color: #fff; box-shadow: 0 4px 10px rgba(229, 9, 20, 0.4); transform: translateY(-3px); }
+
+/* Adds a specific highlight class that can be dynamically applied to table cells via JavaScript. */
+.schedule-table td { transition: background-color 0.4s ease, color 0.4s ease; }
+.schedule-table td.highlight-red { background-color: var(--accent-color) !important; color: #fff !important; font-weight: bold; }
+.schedule-intro { text-align: center; margin-bottom: 20px; color: #ccc; }
+
+/* Structures the contact section, dividing it into information and form columns. */
+.contact-container { display: flex; gap: 50px; justify-content: space-between; }
+.contact-info, .contact-form-container { flex: 1; background-color: var(--surface-color); padding: 30px; border-radius: 8px; }
+.info-list { list-style: none; margin-bottom: 25px; }
+.info-list li { margin-bottom: 10px; }
+.map-container iframe { border-radius: 5px; width: 100%; }
+
+/* Styles form input fields, textareas, and labels, ensuring they match the dark theme and have a focus state. */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #444; border-radius: 5px; background-color: #2a2a2a; color: var(--text-color); font-family: inherit; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-color); }
+
+/* Defines the styling for the form submission button. */
+.btn-submit { width: 100%; background-color: var(--accent-color); color: #fff; border: none; padding: 15px; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+.btn-submit:hover { background-color: var(--hover-color); }
+
+/* Formats the site footer background, text alignment, and copyright typography. */
+footer { background-color: #000; text-align: center; padding: 30px 50px; border-top: 1px solid #333; }
+.footer-info p { color: #aaa; margin-bottom: 5px; }
+.copyright { margin-top: 15px; font-size: 12px; color: #666; }
+
+/* Styles the floating 'Back to Top' button, ensuring it is hidden by default and fixed to the bottom right. */
+/* ==========================================================================
+   ANIMATIONS & STATS
+   ========================================================================== */
+#backToTopBtn { display: none; position: fixed; bottom: 30px; right: 30px; z-index: 99; width: 50px; height: 50px; border: none; background-color: var(--accent-color); color: white; cursor: pointer; border-radius: 50%; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); transition: 0.3s; justify-content: center; align-items: center; }
+#backToTopBtn i { font-size: 32px; font-weight: bold; }
+#backToTopBtn:hover { background-color: var(--hover-color); transform: translateY(-5px); }
+
+/* Keyframe definition for a smooth vertical slide-up and fade-in animation. */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.hero-content h2 { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
+.hero-content p { opacity: 0; animation: fadeInUp 0.8s ease-out 0.3s forwards; }
+
+/* Styles the statistics bar displaying numerical data, using flexbox to distribute items evenly. */
+.stats-section { background-color: var(--surface-color); padding: 50px 20px; margin: 60px 0; border-top: 2px solid var(--accent-color); border-bottom: 2px solid var(--accent-color); }
+.stats-container { display: flex; justify-content: space-around; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; text-align: center; gap: 30px; }
+.stat-item { flex: 1; min-width: 200px; }
+.stat-item i { font-size: 50px; color: var(--accent-color); margin-bottom: 15px; }
+.stat-value { font-size: 48px; font-family: 'Oswald', sans-serif; color: #ffffff; margin-bottom: 5px; text-align: center; }
+.number-box { position: relative; display: inline-block; }
+.sign { position: absolute; right: 100%; padding-right: 8px; bottom: 0; }
+.stat-item p { font-size: 16px; color: #cccccc; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Adds interactive states to the value cards, revealing a "Read More" hint on hover to indicate modal functionality. */
+/* ==========================================================================
+   MODAL POPUP
+   ========================================================================== */
+.value-card { cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; border: 1px solid transparent; }
+.value-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); }
+.click-hint { display: block; margin-top: 15px; font-size: 0.85rem; color: #e50914; font-style: italic; opacity: 0; transition: opacity 0.3s ease; }
+.click-hint::after { content: "Xem Thêm \2192"; }
+.value-card:hover .click-hint { opacity: 1; }
+
+/* Provides the CSS for the full-screen modal overlay backdrop, applying a blur effect to the background. */
+.custom-modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); }
+
+/* Styles the actual modal window container, centering it and applying borders and shadow animations. */
+.modal-content { background-color: #1a1a1a; margin: 10% auto; padding: 0; border: 1px solid #e50914; width: 80%; max-width: 800px; border-radius: 8px; position: relative; animation: fadeIn 0.4s ease; }
+.close-btn { color: #fff; float: right; font-size: 28px; font-weight: bold; position: absolute; right: 15px; top: 5px; cursor: pointer; transition: color 0.3s; }
+.close-btn:hover { color: #e50914; }
+
+/* Divides the modal content into two flexible columns for an image and descriptive text. */
+.modal-body { display: flex; flex-wrap: wrap; }
+.modal-image { flex: 1; min-width: 300px; }
+.modal-image img { width: 100%; height: 100%; object-fit: cover; border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.modal-text { flex: 1; padding: 40px 30px; color: #fff; display: flex; flex-direction: column; justify-content: center; }
+.modal-text h2 { color: #e50914; margin-bottom: 15px; }
+.modal-text p { line-height: 1.6; margin-bottom: 25px; color: #ccc; }
+.btn-modal-action { display: inline-block; background-color: #e50914; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; text-align: center; font-weight: bold; transition: background-color 0.3s; width: fit-content; }
+.btn-modal-action:hover { background-color: #b20710; }
+
+/* Media query to handle responsive adjustments for tablet and mobile screens (max-width: 768px). */
+/* ==========================================================================
+   MOBILE COMPATIBILITY (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Adjusts the header, navigation, and section paddings for smaller viewports. */
+    header { flex-direction: column; padding: 15px; }
+    nav ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+    section { padding: 40px 20px; }
+    .hero-content h2 { font-size: 32px; }
+    
+    /* Stacks flex containers vertically and enables horizontal scrolling for the schedule table. */
+    .contact-container { flex-direction: column; }
+    .schedule-table { display: block; overflow-x: auto; white-space: nowrap; }
+    
+    /* Reorganizes modal layout and zig-zag items to stack vertically instead of side-by-side. */
+    .modal-body { flex-direction: column; } 
+    .modal-image img { border-radius: 8px 8px 0 0; height: 200px; }
+    .click-hint { opacity: 1; margin-top: 10px; }
+    .click-hint::after { content: "Xem thêm \2192"; }
+    .value-card:active { transform: scale(0.98); border: 1px solid var(--accent-color); box-shadow: 0 0 15px rgba(229, 9, 20, 0.4); transition: 0.1s; }
+    .zz-item, .zz-item:nth-child(even) { flex-direction: column; gap: 30px; margin-bottom: 60px; }
+    .zz-img, .zz-text { width: 100%; }
+    .zz-text { text-align: center; }
+    .year-tag, .zz-item:nth-child(even) .year-tag { left: 10px; right: auto; top: 10px; }
+    
+    /* Adjusts the profile grid and media slider controls specifically for mobile screens. */
+    .profile-grid { flex-direction: column; gap: 20px; }
+    .profile-info { padding: 20px; }
+    .coach-name-large { font-size: 32px; }
+    .tab-controls { flex-direction: column; }
+    
+    /* Re-adjust spacing for Mobile */
+    .slide-caption { padding: 15px 15px 50px 15px; text-align: center; }
+    .nav-controls { right: 50%; transform: translateX(50%); bottom: 10px; }
+}
+
+/* Styles the multimedia showcase section for training programs, utilizing a dark background and nested layouts. */
+/* ==========================================================================
+   COURSE DETAILS AREA (MULTIMEDIA TABS)
+   ========================================================================== */
+.class-showcase-section { padding: 80px 50px; background-color: #0a0a0a; border-top: 1px solid #222; }
+.container-showcase { max-width: 1200px; margin: 0 auto; }
+.section-subtitle { text-align: center; color: #aaa; margin-top: -20px; margin-bottom: 50px; font-size: 18px; }
+
+.showcase-wrapper { background-color: var(--surface-color); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #333; }
+
+/* Formats the horizontal tab buttons used to switch between different class categories. */
+/* Tab Buttons */
+.showcase-tabs { display: flex; background-color: #000; border-bottom: 2px solid #2a2a2a; }
+.sc-tab-btn { flex: 1; padding: 20px; background: transparent; color: #888; border: none; font-size: 18px; font-family: 'Oswald', sans-serif; font-weight: bold; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; letter-spacing: 1px;}
+.sc-tab-btn i { font-size: 24px; }
+.sc-tab-btn:hover { color: #fff; background-color: #111; }
+.sc-tab-btn.active { color: #fff; background-color: var(--accent-color); border-bottom: 3px solid #fff; }
+
+/* Hides inactive tab panes and defines the layout for the active content area. */
+/* Content inside Tab */
+.showcase-content { padding: 40px; }
+.sc-tab-pane { display: none; animation: fadeIn 0.4s ease; }
+.sc-tab-pane.active { display: block; }
+
+.sc-split-layout { display: flex; gap: 40px; align-items: stretch; }
+
+/* Creates a complex CSS Grid layout for displaying primary and secondary media assets side-by-side. */
+/* Media Grid Column (Left) */
+.sc-media-grid { flex: 1.2; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 15px; }
+.sc-media-main { grid-column: 1 / span 2; width: 100%; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid #333; background-color: #000;}
+.sc-media-main video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.sc-media-sub { width: 100%; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; border: 1px solid #333; }
+.sc-media-sub img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.sc-media-sub img:hover { transform: scale(1.05); }
+
+/* Styles the descriptive text column within the showcase tab, including typography and list styling. */
+/* Details Column (Right) */
+.sc-info-box { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; padding-top: 10px; }
+.sc-info-box h3 { color: var(--accent-color); font-size: 32px; margin-bottom: 20px; border-bottom: 1px dashed #444; padding-bottom: 10px;}
+.sc-desc { color: #ccc; font-size: 17px; margin-bottom: 25px; line-height: 1.8; }
+
+.sc-list { list-style: none; margin-bottom: 0; }
+.sc-list li { color: #eee; margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; font-size: 16px; line-height: 1.6; }
+.sc-list li i { color: var(--accent-color); font-size: 22px; margin-top: 2px; flex-shrink: 0;}
+.sc-list li strong { color: #fff; }
+
+/* Secondary media query for screens below 992px to stack the showcase tabs and layouts vertically. */
+/* Responsive (Mobile) */
+@media (max-width: 992px) {
+    .sc-split-layout { flex-direction: column; }
+    .showcase-tabs { flex-direction: column; }
+    .sc-tab-btn.active { border-bottom: none; border-left: 4px solid #fff; }
+    .sc-media-sub { aspect-ratio: 16/9; }
+}
+
+/* Formats the social media link container to display items in a vertical column with spacing. */
+/* Layout containing vertical social media links */
+.social-connect {
+    display: flex;
+    flex-direction: column; /* Align vertically according to list */
+    gap: 15px; /* Spacing between FB and TikTok rows */
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+/* Styles hidden error messages for form validation. */
+.error-msg {
+    color: #e50914;
+    display: none;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Defines the structural layout for individual social link items. */
+/* Styling for each link row */
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px; /* Spacing between Logo and Name */
+    color: var(--text-color);
+    text-decoration: none;
+    width: fit-content; /* Hover effect only within text and logo area */
+}
+
+/* Styles the icon wrappers for social links, applying border radius and transitions. */
+/* Specific styling for Logo */
+.social-link i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Styles the text label alongside the social media icons. */
+/* Specific styling for Name */
+.social-link .social-name {
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Adds interactive hover effects, elevating the icon and changing text color. */
+/* Hover effect: Logo turns red and bounces, Name turns red */
+.social-link:hover i {
+    background-color: var(--accent-color);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.3);
+}
+
+.social-link:hover .social-name {
+    color: var(--hover-color);
+}
